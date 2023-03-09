@@ -15,35 +15,64 @@ let add = document.querySelector(".add");
 let userImage= document.querySelector(".display-image");
 let userSong= document.querySelector(".display-song");
 let userArtis= document.querySelector(".display-artist");
-let userLink= document.querySelector("display-link");
+let userLink= document.querySelector(".display-link");
 // task 7: create and populate an array to store your image urls. Create three more arrays. One to store your song names, one for the artists, and a last one for the song links.
-let imageArray = ["https://www.google.com/url?sa=i&url=https%3A%2F%2Fsoundcloud.com%2Fjamesmarriott-music%2Fgrapes&psig=AOvVaw1yJ1xDA1V78iLDb1qVKwcq&ust=1674173750135000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCNi4_q-t0vwCFQAAAAAdAAAAABAD","https://www.google.com/url?sa=i&url=https%3A%2F%2Fopen.spotify.com%2Ftrack%2F3VMeAc0SlgLaS9RzA8TSxH&psig=AOvVaw1Wj0B0z_UujLJIRTmsHvj9&ust=1674173847773000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKDkrt6t0vwCFQAAAAAdAAAAABAD","https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DrbxL5BVEkRs&psig=AOvVaw15p3mvg-WIIevIyM3uwH38&ust=1674173983241000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCLj2iZ-u0vwCFQAAAAAdAAAAABAE","https://www.google.com/url?sa=i&url=https%3A%2F%2Fgenius.com%2FJvke-golden-hour-lyrics&psig=AOvVaw3MCUItQkLZRZaeFXKUfr_Q&ust=1674173943730000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCNj_9ouu0vwCFQAAAAAdAAAAABAD"];
-let songNameArray = ["Grapes","Deep End","Golden Hour","Touch Tone Telephone"];
-let songLinkArray = ["","","",""];
-let artistArray = ["","","","Lemon Demon"];
+let imageArray = ["pic/grapes.png","pic/deepend.jpg","pic/gold.jpg","pic/lemondramon.jpg"];
+let songNameArray = ["Grapes","Deep End","Golden Hour","Touch-Tone Telephone"];
+let songLinkArray = ["https://www.youtube.com/watch?v=-uk3GwgNc3o","https://www.youtube.com/watch?v=ZVHPTVzadCg","https://www.youtube.com/watch?v=PEM0Vs8jf1w","https://www.youtube.com/watch?v=rbxL5BVEkRs"];
+let artistArray = ["James Marriott","Felix (Stray Kids)","JVKE","Lemon Demon"];
 
 //REFACTOR ARRAYS DAY 
 // task 11: comment out the arrays data.
 // task 12: create an object for each of your songs.
+let Grapes ={
+  picture:"pic/grapes.png",
+  nombre:"Grapes",
+  artista:"James Marriott",
+  URL:"https://www.youtube.com/watch?v=-uk3GwgNc3o"
+};
+let Deep-End ={
+  picture:"pic/deepend.jpg",
+  nombre:"Deep End",
+  artista:"Felix (Stray Kids)",
+  URL:"https://www.youtube.com/watch?v=ZVHPTVzadCg"
+};
+let Golden-Hour={
+  picture:"pic/gold.jpg",
+  nombre:"Golden Hour",
+  artista:"JVKE",
+  URL:"https://www.youtube.com/watch?v=PEM0Vs8jf1w"
+};
+let lemon={
+  picture:"pic/lemondramon.jpg",
+  nombre:"Touch-Tone Telephone",
+  artista:"Lemon Demon",
+  URL:"https://www.youtube.com/watch?v=rbxL5BVEkRs"
+};
 // task 13: inside each object, add key/value pairs to store the image url, song name, artist, and song link.
 // task 14: create an array that stores all of the objects.
-
-
-
+let SongInfoArray=[Deep-End,Golden-Hour,lemon,Grapes];
 //REFACTOR LOOPS DAY 
+function addSongInfo() {
 // task 15: update your `addSongInfo` function so the input values are saved in as values in a new object.
+Song
 // task 16: update your `.push()` so the input object is added to your array of objects.
+  
 // task 17: update your loops based on your new array of objects.
-
-
-
-
-
-    () => {
+  
         // task 9: declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
+      let SaveUrl = songLink;
+      let SaveImage = image;
+      let saveSong = songName;
+      let saveArtist= artist;
         // task 10: use `.push()` to add each input value to the correct array.
+    artistArray.push(saveArtist);
+    imageArray.push(SaveImage);
+    songNameArray.push(saveSong);
+    songLinkArray.push(SaveUrl);
+    
+      
     }
-
 
 
 
@@ -59,22 +88,28 @@ function emptyDisplay() {
 
 
 function displaySongInfo() {
-
-// task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
-
-
-
+// task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song link
+for (let index= 0; index < imageArray.length; index++){
+  let imagehaha= imageArray[index];
+  userImage.insertAdjacentHTML('beforeend', `<img src="${imagehaha}">`);
 }
-
-
-
-
-
+  for (let list= 0; list < songLinkArray.length; list++){
+  let songshe= songLinkArray[list];
+  userLink.insertAdjacentHTML('beforeend', `<a href="${songshe}" target="_blank">Link To Song</a>`);
+}
+for (let i=0; i<artistArray.length; i++){
+  let artistname= artistArray[i];
+  userArtis.insertAdjacentHTML(`beforeend`,`<p>${artistname}</p>`)
+    }
+for (let x=0; x < songNameArray.length; x++){
+  let Namesongs= songNameArray[x];
+  userSong.insertAdjacentHTML(`beforeend`,`<p>${Namesongs}</p>`)
+}
 // click event to add and display songs
 add.onclick = function() {
   addSongInfo();
   displaySongInfo();
-};
+}};
 
 // function call to display stored songs
 displaySongInfo();
